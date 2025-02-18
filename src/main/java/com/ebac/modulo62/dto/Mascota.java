@@ -1,8 +1,25 @@
 package com.ebac.modulo62.dto;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Mascota {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int idMascota;
     private String nombre;
     private String dueño;
+
+    public int getIdMascota() {
+        return idMascota;
+    }
+
+    public void setIdMascota(int idMascota) {
+        this.idMascota = idMascota;
+    }
 
     public String getNombre() {
         return nombre;
@@ -23,7 +40,8 @@ public class Mascota {
     @Override
     public String toString() {
         return "Mascota{" +
-                "nombre='" + nombre + '\'' +
+                "idMascota=" + idMascota +
+                ", nombre='" + nombre + '\'' +
                 ", dueño='" + dueño + '\'' +
                 '}';
     }
